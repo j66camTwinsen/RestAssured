@@ -24,4 +24,14 @@ public class GetPostSteps {
     public void iShouldSeeTheAuthorNames() {
         BDDStyledMethod.performContainsCollection();
     }
+
+    @Then("I should verify Path Parameter")
+    public void iShouldVerifyPathParameter() {
+        BDDStyledMethod.performPathParameter();
+    }
+
+    @Then("I should verify Query Parameter")
+    public void iShouldVerifyQueryParameter() {
+        BDDStyledMethod.performQueryParameter();
+    }
 }
