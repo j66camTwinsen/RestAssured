@@ -37,4 +37,9 @@ public class GetPostSteps {
     public void iShouldVerifyQueryParameter() {
         BDDStyledMethod.performQueryParameter();
     }
+
+    @Given("I perform POST operation for {string}")
+    public void iPerformPOSTOperationFor(String arg0) {
+        BDDStyledMethod.performPostWithBodyParameter();
+    }
 }

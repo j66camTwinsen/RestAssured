@@ -1,3 +1,5 @@
+########################################---GET---############################################
+
 Feature: Verify different GET operations using REST-Assured
 
   @API
@@ -19,3 +21,9 @@ Feature: Verify different GET operations using REST-Assured
   Scenario: Verify Query parameter of Get
     Given I perform GET operation for "/post"
     Then  I should verify Query Parameter
+
+########################################---POST---############################################
+
+  @API5
+  Scenario: Verify Post Operation
+    Given I perform POST operation for "/posts"

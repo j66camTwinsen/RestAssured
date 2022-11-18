@@ -1,6 +1,9 @@
 package steps;
 
 import io.restassured.http.ContentType;
+import org.hamcrest.core.Is;
+
+import java.util.HashMap;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
@@ -42,6 +45,22 @@ public class BDDStyledMethod {
                 .get("http://localhost:3000/posts/")
                 .then()
                 .body("author", hasItem("Karthik KK"));
+    }
+
+    public static void performPostWithBodyParameter() {
+        HashMap<String,String> postContent = new HashMap<>();
+        postContent.put("id", "5");
+        postContent.put("title", "Robotium Course");
+        postContent.put("author", "ExecuteAutomation");
+
+        given()
+                .contentType(ContentType.JSON)
+                .with()
+                .body(postContent)
+                .when()
+                .post("http://localhost:3000/posts")
+                .then()
+                .body("author", Is.is("ExecuteAutomation"));
     }
 
 }

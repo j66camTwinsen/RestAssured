@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
         glue = {"steps"},
         plugin = {"json:test/report/cucumber_report.json"},
         monochrome = true,
-        tags = "@"
+        tags = "@API5"
 )
 
 public class TestRunner {
