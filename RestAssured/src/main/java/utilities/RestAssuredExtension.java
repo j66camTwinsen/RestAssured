@@ -41,15 +41,10 @@ public class RestAssuredExtension {
         return null;
     }
 
-    public ResponseOptions<Response> postOpsWithBodyAndPathParams(String url, Map<String, String> pathParams, Map<String, String> body) {
+    public static ResponseOptions<Response> postOpsWithBodyAndPathParams(String url, Map<String, String> pathParams, Map<String, String> body) {
         Request.pathParams(pathParams);
         Request.body(body);
-        try {
-            return Request.post(new URI(url));
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-        }
-        return null;
+        return Request.post(url);
     }
 
 }
