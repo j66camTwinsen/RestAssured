@@ -1,16 +1,22 @@
+Feature: Verify different GET and POST operations using REST-ASSURED
+
 ########################################---GET---############################################
 
-Feature: Verify different GET operations using REST-Assured
-
   @API
-  Scenario: Verify one author of the post
-    Given I perform GET operation for "/posts"
-    Then  I should see the author name as "Karthik KK"
+  Scenario Outline: Validate one author of the post
+    Given User performs GET operation for "<Resource>"
+    Then  User validates that in the "<Attribute>" this "<Value>" exists
+    Examples:
+      | Resource | Attribute | Value      |  |
+      | /posts   | author    | Karthik KK |  |
 
   @API2
-  Scenario: Verify collection of authors in the post
-    Given I perform GET operation for "/post"
-    Then  I should see the author names
+  Scenario Outline: Validate that an author collection exists
+    Given User performs GET operation for "<Resource>"
+    #Then  User validates that a collection of <Authors> exists
+    Examples:
+      | Resource | Authors                 |
+      | /posts   | "Karthik KK,Karthik KK" |
 
   @API3
   Scenario: Verify Path parameter of Get

@@ -4,27 +4,30 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.restassured.response.Response;
 import io.restassured.response.ResponseOptions;
-import utilities.RestAssuredExtension;
+import utilities.APIUtilities;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.hasItem;
 
 public class GetPostSteps {
 
-    private static ResponseOptions<Response> response;
+    public ResponseOptions<Response> response;
 
-    @Given("I perform GET operation for {string}")
-    public void iPerformGETOperationFor(String url) {
-        response = RestAssuredExtension.getOps(url);
+    @Given("User performs GET operation for {string}")
+    public void userPerformsGETOperationFor(String resource) {
+        response = APIUtilities.get(resource);
     }
 
-    @Then("I should see the author name as {string}")
-    public void iShouldSeeTheAuthorNameAs(String authorName) {
-        assertThat(response.getBody().jsonPath().get("author"), hasItem(authorName));
+    @Then("User validates that in the {string} this {string} exists")
+    public void userValidatesThatInTheThisExists(String authorAttribute, String authorValue) {
+        assertThat(response
+                .getBody()
+                .jsonPath()
+                .get(authorAttribute), hasItem(authorValue));
     }
 
-    @Then("I should see the author names")
-    public void iShouldSeeTheAuthorNames() {
+    @Then("User validates that a collection of {string} exists")
+    public void userValidatesThatACollectionOfExists(String arg0) {
         BDDStyledMethod.performContainsCollection();
     }
 

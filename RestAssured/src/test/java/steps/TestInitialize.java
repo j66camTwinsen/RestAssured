@@ -1,13 +1,13 @@
 package steps;
 
 import io.cucumber.java.Before;
-import utilities.RestAssuredExtension;
+import utilities.APIUtilities;
 
 public class TestInitialize {
 
     @Before
     public void testSetUp() {
-        RestAssuredExtension restAssuredExtension = new RestAssuredExtension();
+        APIUtilities APIUtilities = new APIUtilities();
     }
 
 }

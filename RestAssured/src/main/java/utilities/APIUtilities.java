@@ -11,11 +11,11 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Map;
 
-public class RestAssuredExtension {
+public class APIUtilities {
 
     public static RequestSpecification Request;
 
-    public RestAssuredExtension() {
+    public APIUtilities() {
         RequestSpecBuilder builder = new RequestSpecBuilder();
         builder.setBaseUri("http://localhost:3000");
         builder.setContentType(ContentType.JSON);
@@ -23,7 +23,16 @@ public class RestAssuredExtension {
         Request = RestAssured.given().spec(requestSpec);
     }
 
-    public static void getOpsWithPathParameter(String url, Map<String, String> pathParams) {
+    public static ResponseOptions<Response> get(String resource) {
+        try {
+            return Request.get(new URI(resource));
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static void getWithPathParams(String url, Map<String, String> pathParams) {
         Request.pathParams(pathParams);
         try {
             Request.get(new URI(url));
@@ -32,16 +41,7 @@ public class RestAssuredExtension {
         }
     }
 
-    public static ResponseOptions<Response> getOps(String url) {
-        try {
-            return Request.get(new URI(url));
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    public ResponseOptions<Response> postOpsWithBodyAndPathParams(String url, Map<String, String> pathParams, Map<String, String> body) {
+    public ResponseOptions<Response> postWithBodyAndPathParams(String url, Map<String, String> pathParams, Map<String, String> body) {
         Request.pathParams(pathParams);
         Request.body(body);
         try {
