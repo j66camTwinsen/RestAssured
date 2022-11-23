@@ -17,10 +17,13 @@ public class APIUtilities {
 
     public APIUtilities() {
         RequestSpecBuilder builder = new RequestSpecBuilder();
-        builder.setBaseUri("http://localhost:3000");
+        builder.setBaseUri(FetchEnvParamsValues.fetchParamValue("BASE_URL_API_ENV"));
         builder.setContentType(ContentType.JSON);
         var requestSpec = builder.build();
-        Request = RestAssured.given().spec(requestSpec);
+        Request = RestAssured.given()
+                .spec(requestSpec)
+                .header("Accept", "application/json")
+                .header("X-ApiKey", "service246");
     }
 
     public static ResponseOptions<Response> get(String resource) {
