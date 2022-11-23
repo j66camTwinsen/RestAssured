@@ -1,0 +1,299 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "http://example.com/example.json",
+  "title": "Root Schema",
+  "type": "object",
+  "default": {},
+  "required": [
+    "TotalRecords",
+    "TotalPages",
+    "Success",
+    "Message",
+    "Data"
+  ],
+  "properties": {
+    "TotalRecords": {
+      "title": "The TotalRecords Schema",
+      "type": "integer",
+      "default": 0,
+      "examples": [
+        4
+      ]
+    },
+    "TotalPages": {
+      "title": "The TotalPages Schema",
+      "type": "integer",
+      "default": 0,
+      "examples": [
+        1
+      ]
+    },
+    "Success": {
+      "title": "The Success Schema",
+      "type": "boolean",
+      "default": false,
+      "examples": [
+        true
+      ]
+    },
+    "Message": {
+      "title": "The Message Schema",
+      "type": "null",
+      "default": null,
+      "examples": [
+        null
+      ]
+    },
+    "Data": {
+      "title": "The Data Schema",
+      "type": "array",
+      "default": [],
+      "items": {
+        "title": "A Schema",
+        "type": "object",
+        "required": [
+          "divisionId",
+          "name",
+          "description",
+          "contactEmail",
+          "TimeZoneOffset",
+          "latitude",
+          "longitude",
+          "aliasDivisionMapId"
+        ],
+        "properties": {
+          "divisionId": {
+            "title": "The divisionId Schema",
+            "type": "integer",
+            "examples": [
+              1,
+              -762496764,
+              -1,
+              1868244949
+            ]
+          },
+          "name": {
+            "title": "The name Schema",
+            "type": "string",
+            "examples": [
+              "N/A",
+              "City of Clovis",
+              "unknown",
+              "Inactive"
+            ]
+          },
+          "description": {
+            "title": "The description Schema",
+            "type": "string",
+            "examples": [
+              "Division 1",
+              "",
+              "Unknown Division"
+            ]
+          },
+          "contactEmail": {
+            "title": "The contactEmail Schema",
+            "type": [
+              "null",
+              "string"
+            ],
+            "examples": [
+              null,
+              "nobody@nowhere.com"
+            ]
+          },
+          "TimeZoneOffset": {
+            "title": "The TimeZoneOffset Schema",
+            "type": [
+              "integer",
+              "null"
+            ],
+            "examples": [
+              -480,
+              null
+            ]
+          },
+          "latitude": {
+            "title": "The latitude Schema",
+            "type": [
+              "null",
+              "number"
+            ],
+            "examples": [
+              null,
+              36.8326554
+            ]
+          },
+          "longitude": {
+            "title": "The longitude Schema",
+            "type": [
+              "null",
+              "number"
+            ],
+            "examples": [
+              null,
+              -119.6886055
+            ]
+          },
+          "aliasDivisionMapId": {
+            "title": "The aliasDivisionMapId Schema",
+            "type": [
+              "null",
+              "integer"
+            ],
+            "examples": [
+              null,
+              2
+            ]
+          }
+        },
+        "examples": [{
+          "divisionId": 1,
+          "name": "N/A",
+          "description": "Division 1",
+          "contactEmail": null,
+          "TimeZoneOffset":
+          -480,
+          "latitude": null,
+          "longitude": null,
+          "aliasDivisionMapId": null
+        },
+          {
+            "divisionId":
+            -762496764,
+            "name": "City of Clovis",
+            "description": "",
+            "contactEmail": null,
+            "TimeZoneOffset":
+            -480,
+            "latitude": 36.8326554,
+            "longitude":
+            -119.6886055,
+            "aliasDivisionMapId": 2
+          },
+          {
+            "divisionId":
+            -1,
+            "name": "unknown",
+            "description": "Unknown Division",
+            "contactEmail": "nobody@nowhere.com",
+            "TimeZoneOffset": null,
+            "latitude": null,
+            "longitude": null,
+            "aliasDivisionMapId": null
+          },
+          {
+            "divisionId": 1868244949,
+            "name": "Inactive",
+            "description": "",
+            "contactEmail": null,
+            "TimeZoneOffset":
+            -480,
+            "latitude": null,
+            "longitude": null,
+            "aliasDivisionMapId": null
+          }]
+      },
+      "examples": [
+        [{
+          "divisionId": 1,
+          "name": "N/A",
+          "description": "Division 1",
+          "contactEmail": null,
+          "TimeZoneOffset":
+          -480,
+          "latitude": null,
+          "longitude": null,
+          "aliasDivisionMapId": null
+        },
+          {
+            "divisionId":
+            -762496764,
+            "name": "City of Clovis",
+            "description": "",
+            "contactEmail": null,
+            "TimeZoneOffset":
+            -480,
+            "latitude": 36.8326554,
+            "longitude":
+            -119.6886055,
+            "aliasDivisionMapId": 2
+          },
+          {
+            "divisionId":
+            -1,
+            "name": "unknown",
+            "description": "Unknown Division",
+            "contactEmail": "nobody@nowhere.com",
+            "TimeZoneOffset": null,
+            "latitude": null,
+            "longitude": null,
+            "aliasDivisionMapId": null
+          },
+          {
+            "divisionId": 1868244949,
+            "name": "Inactive",
+            "description": "",
+            "contactEmail": null,
+            "TimeZoneOffset":
+            -480,
+            "latitude": null,
+            "longitude": null,
+            "aliasDivisionMapId": null
+          }]
+      ]
+    }
+  },
+  "examples": [{
+    "TotalRecords": 4,
+    "TotalPages": 1,
+    "Success": true,
+    "Message": null,
+    "Data": [{
+      "divisionId": 1,
+      "name": "N/A",
+      "description": "Division 1",
+      "contactEmail": null,
+      "TimeZoneOffset":
+      -480,
+      "latitude": null,
+      "longitude": null,
+      "aliasDivisionMapId": null
+    },
+      {
+        "divisionId":
+        -762496764,
+        "name": "City of Clovis",
+        "description": "",
+        "contactEmail": null,
+        "TimeZoneOffset":
+        -480,
+        "latitude": 36.8326554,
+        "longitude":
+        -119.6886055,
+        "aliasDivisionMapId": 2
+      },
+      {
+        "divisionId":
+        -1,
+        "name": "unknown",
+        "description": "Unknown Division",
+        "contactEmail": "nobody@nowhere.com",
+        "TimeZoneOffset": null,
+        "latitude": null,
+        "longitude": null,
+        "aliasDivisionMapId": null
+      },
+      {
+        "divisionId": 1868244949,
+        "name": "Inactive",
+        "description": "",
+        "contactEmail": null,
+        "TimeZoneOffset":
+        -480,
+        "latitude": null,
+        "longitude": null,
+        "aliasDivisionMapId": null
+      }]
+  }]
+}
