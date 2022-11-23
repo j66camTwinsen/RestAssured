@@ -1,6 +1,6 @@
 Feature: Get a list of existing divisions in the system
 
-  @Work1
+  @API1
   Scenario Outline: Get a divisions list from API
     Given User sends a GET request to the "<Resource>" (Divisions)
     Then  User validates that the "<Attribute>" has this "<Value>" (Divisions)
