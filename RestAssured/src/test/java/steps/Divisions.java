@@ -12,9 +12,10 @@ import static org.hamcrest.Matchers.hasItem;
 public class Divisions {
 
     public ResponseOptions<Response> response;
+    public String resource = "/v2/divisions";
 
-    @Given("User sends a GET request to the {string} \\(Divisions)")
-    public void userSendsAGETRequestToTheDivisions(String resource) {
+    @Given("User sends a GET request to the endpoint \\(Divisions)")
+    public void userSendsAGETRequestToTheEndpointDivisions() {
         response = APIUtilities.get(resource);
     }
 
