@@ -14,7 +14,7 @@ import static org.hamcrest.Matchers.equalTo;
 
 public class Post {
 
-    private static ResponseOptions<Response> response;
+    public static ResponseOptions<Response> response;
 
     @Given("I perform POST operation for {string}")
     public void iPerformPOSTOperationFor(String arg0) {
@@ -41,5 +41,4 @@ public class Post {
     public void iShouldSeeTheBodyHasNameAs(String name) {
         assertThat(response.getBody().jsonPath().get("name"), equalTo(name));
     }
-
 }

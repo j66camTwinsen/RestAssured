@@ -62,4 +62,9 @@ public class RestAssuredExtension {
         return Request.get(url);
     }
 
+    public static ResponseOptions<Response> putOpsWithBodyAndPathParams(String url, Map<String, String> body, Map<String, String> pathParams) {
+        Request.pathParams(pathParams);
+        Request.body(body);
+        return Request.put(url);
+    }
 }
