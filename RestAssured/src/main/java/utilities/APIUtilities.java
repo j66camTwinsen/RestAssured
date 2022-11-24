@@ -7,8 +7,6 @@ import io.restassured.response.Response;
 import io.restassured.response.ResponseOptions;
 import io.restassured.specification.RequestSpecification;
 
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.Map;
 
 public class APIUtilities {
@@ -34,22 +32,13 @@ public class APIUtilities {
 
     public static void getWithPathParams(String url, Map<String, String> pathParams) {
         Request.pathParams(pathParams);
-        try {
-            Request.get(new URI(url));
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-        }
+        Request.get(url);
     }
 
     public ResponseOptions<Response> postWithBodyAndPathParams(String url, Map<String, String> pathParams, Map<String, String> body) {
         Request.pathParams(pathParams);
         Request.body(body);
-        try {
-            return Request.post(new URI(url));
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-        }
-        return null;
+        return Request.post(url);
     }
 
 }

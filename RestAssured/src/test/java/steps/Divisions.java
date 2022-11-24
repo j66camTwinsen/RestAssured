@@ -21,9 +21,6 @@ public class Divisions {
 
     @Then("User validates that the {string} has this {string} \\(Divisions)")
     public void userValidatesThatTheHasThisDivisions(String attribute, String divisionId) {
-        assertThat(response
-                .getBody()
-                .jsonPath()
-                .get(attribute), hasItem(Integer.valueOf(divisionId)));
+        assertThat(response.getBody().jsonPath().get(attribute), hasItem(Integer.valueOf(divisionId)));
     }
 }
