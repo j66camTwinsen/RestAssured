@@ -6,7 +6,7 @@ import utilities.APIUtilities;
 public class TestInitialize {
 
     @Before
-    public void testSetUp() {
+    public void setUp() {
         APIUtilities APIUtilities = new APIUtilities();
     }
 

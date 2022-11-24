@@ -19,7 +19,9 @@ public class APIUtilities {
         RequestSpecBuilder builder = new RequestSpecBuilder();
         builder.setBaseUri(FetchEnvParamsValues.fetchParamValue("BASE_URL_API_ENV"));
         builder.setContentType(ContentType.JSON);
+
         var requestSpec = builder.build();
+
         Request = RestAssured.given()
                 .spec(requestSpec)
                 .header("Accept", "application/json")
@@ -27,12 +29,7 @@ public class APIUtilities {
     }
 
     public static ResponseOptions<Response> get(String resource) {
-        try {
-            return Request.get(new URI(resource));
-        } catch (URISyntaxException e) {
-            e.printStackTrace();
-        }
-        return null;
+        return Request.get(resource);
     }
 
     public static void getWithPathParams(String url, Map<String, String> pathParams) {
