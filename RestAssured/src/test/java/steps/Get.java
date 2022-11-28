@@ -4,10 +4,11 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.restassured.response.Response;
 import io.restassured.response.ResponseOptions;
+import pojos.post.PostPojo;
 import utilities.RestAssuredExtension;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.hasItem;
+import static org.hamcrest.Matchers.equalTo;
 
 public class Get {
 
@@ -20,7 +21,9 @@ public class Get {
 
     @Then("I should see the author name as {string}")
     public void iShouldSeeTheAuthorNameAs(String authorName) {
-        assertThat(response.getBody().jsonPath().get("author"), hasItem(authorName));
+        var posts = response.getBody().as(PostPojo.class);
+        assertThat(posts.getAuthor(), equalTo(authorName));
+        //assertThat(response.getBody().jsonPath().get("author"), hasItem(authorName));
     }
 
     @Then("I should see the author names")
